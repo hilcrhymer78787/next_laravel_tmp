@@ -1,4 +1,4 @@
-git clone https://github.com/hilcrhymer78787/tsumiage.git
+git clone https://github.com/hilcrhymer78787/next_laravel_tmp.git
 
 cd tsumiage
 
