@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Room;
 use App\Services\UserService;
-use App\Services\TaskService;
-use App\Services\RoomService;
-use App\Services\InvitationService;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -40,22 +36,6 @@ class UserController extends Controller
         if (!$loginInfo) {
             return response()->json(['errorMessage' => 'このトークンは有効ではありません'], 401);
         }
-        // 参加しているユーザー
-        $loginInfo['room_joined_users'] = (new UserService())->getJoinedUsersByRoomId($loginInfo['room_id']);
-        // 招待中のユーザー
-        $loginInfo['room_inviting_users'] = (new UserService())->getInvitingUsersByRoomId($loginInfo['room_id']);
-        // 参加しているルーム
-        $loginInfo['rooms'] = (new RoomService())->getJoinedRooms($loginInfo['id']);
-
-        // 招待されている部屋
-        $loginInfo['invited_rooms'] = (new RoomService())->getInvitedRooms($loginInfo['id']);
-
-        foreach ($loginInfo['invited_rooms'] as $room) {
-            // 参加しているユーザー
-            $room['joined_users'] = (new UserService())->getJoinedUsersByRoomId($room['room_id']);
-            // 招待中のユーザー
-            $room['inviting_users'] = (new UserService())->getInvitingUsersByRoomId($room['room_id']);
-        }
         return $loginInfo;
     }
     public function create(Request $request)
@@ -66,8 +46,6 @@ class UserController extends Controller
             if ($existEmail) {
                 return response()->json(['errorMessage' => 'このメールアドレスは既に登録されています',], 500);
             }
-            // ダミータスクを作成
-            // (new TaskService())->createcDummyTask($room['id']);
             // 新規ユーザー登録
             $user = User::create([
                 'name' => $request['name'],
@@ -111,13 +89,6 @@ class UserController extends Controller
         }
         $loginInfo = (new UserService())->getLoginInfoByToken($request->header('token'));
         return $loginInfo;
-    }
-    public function updateRoomId(Request $request)
-    {
-        $loginInfo = (new UserService())->getLoginInfoByToken($request->header('token'));
-        User::where('id', $loginInfo['id'])->update([
-            'user_room_id' => $request['room_id'],
-        ]);
     }
     public function delete(Request $request)
     {

@@ -21,7 +21,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 15,
                 'task_point_per_minute' => 1,
-                'task_sort_key' => 1,
             ],
             [
                 'task_user_id' => 1,
@@ -29,7 +28,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 30,
                 'task_point_per_minute' => 3,
-                'task_sort_key' => 2,
             ],
             [
                 'task_user_id' => 1,
@@ -37,7 +35,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 15,
                 'task_point_per_minute' => 1,
-                'task_sort_key' => 3,
             ],
             [
                 'task_user_id' => 1,
@@ -45,7 +42,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 20,
                 'task_point_per_minute' => 2,
-                'task_sort_key' => 4,
             ],
             [
                 'task_user_id' => 1,
@@ -53,7 +49,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 10,
                 'task_point_per_minute' => 1,
-                'task_sort_key' => 5,
             ],
             [
                 'task_user_id' => 1,
@@ -61,7 +56,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 30,
                 'task_point_per_minute' => 3,
-                'task_sort_key' => 6,
             ],
             [
                 'task_user_id' => 1,
@@ -69,7 +63,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 5,
                 'task_point_per_minute' => 5,
-                'task_sort_key' => 7
             ],
             [
                 'task_user_id' => 2,
@@ -77,7 +70,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 20,
                 'task_point_per_minute' => 2,
-                'task_sort_key' => 8,
             ],
             [
                 'task_user_id' => 3,
@@ -85,7 +77,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 5,
                 'task_point_per_minute' => 5,
-                'task_sort_key' => 9
             ],
             [
                 'task_user_id' => 3,
@@ -93,7 +84,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 30,
                 'task_point_per_minute' => 3,
-                'task_sort_key' => 10,
             ],
             [
                 'task_user_id' => 3,
@@ -101,7 +91,6 @@ class tasksTableSeeder extends Seeder
                 'task_status' => 1,
                 'task_default_minute' => 30,
                 'task_point_per_minute' => 3,
-                'task_sort_key' => 11,
             ],
         ]);
     }

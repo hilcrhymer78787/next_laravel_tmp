@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
-use App\Models\User;
-use App\Models\Work;
 use App\Services\UserService;
-use App\Services\TaskService;
 
 
 class TaskController extends Controller
@@ -16,20 +13,15 @@ class TaskController extends Controller
     {
         $loginInfo = (new UserService())->getLoginInfoByToken($request->header('token'));
 
-        $tasks = (new TaskService())->getTasksByUserId($loginInfo['id']);
-
-        // foreach ($tasks as $task) {
-        //     $query = Work::where('work_task_id', $task['task_id'])
-        //         ->whereYear('work_date', $request['year'])
-        //         ->whereMonth('work_date', $request['month'])
-        //         ->whereDay('work_date', $request['day']);
-        //     $task['minute'] = (int)$query->sum('work_minute');
-        //     $task['works'] = $query->leftjoin('users', 'works.work_user_id', '=', 'users.id')
-        //         ->select('work_id', 'work_date', 'work_minute', 'work_user_id', 'name as work_user_name', 'user_img as work_user_img')
-        //         ->get();
-        // }
-
-        $return['tasks'] = $tasks;
+        $return['tasks'] = Task::where('task_user_id', $loginInfo['id'])
+            ->select(
+                'task_id as id',
+                'task_name as name',
+                'task_default_minute as default_minute',
+                'task_point_per_minute as point_per_minute',
+                'task_status as status',
+            )
+            ->get();
         return $return;
     }
     public function create(Request $request)
@@ -58,17 +50,6 @@ class TaskController extends Controller
         Task::where('task_id', $request['task_id'])
             ->delete();
 
-        Work::where('work_task_id', $request['task_id'])
-            ->delete();
-
         return $request;
-    }
-    public function sortset(Request $request)
-    {
-        foreach ($request['tasks'] as $index => $task) {
-            Task::where('task_id', $task['task_id'])->update([
-                'task_sort_key' => $index,
-            ]);
-        }
     }
 }

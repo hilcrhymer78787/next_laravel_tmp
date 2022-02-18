@@ -25,7 +25,6 @@ export default function CreateTask(props: Props) {
         default_minute: 3 as string | number,
         point_per_minute: 3 as string | number,
         status: 1 as string | number,
-        sort_key: null as number | null,
     })
     const taskDelete = () => {
         if (!confirm(`「${props.focusTask.name}」を削除しますか？`)) {
@@ -85,7 +84,6 @@ export default function CreateTask(props: Props) {
                 default_minute: props.focusTask.default_minute,
                 point_per_minute: props.focusTask.point_per_minute,
                 status: props.focusTask.status,
-                sort_key: props.focusTask.sort_key,
             })
         }
     }, [])

@@ -16,7 +16,6 @@ class Task extends Model
         'task_status',
         'task_default_minute',
         'task_point_per_minute',
-        'task_sort_key',
     ];
 
     protected $casts = [
@@ -25,6 +24,5 @@ class Task extends Model
         'task_status'=>'integer',
         'task_default_minute'=>'integer',
         'task_point_per_minute'=>'integer',
-        'task_sort_key'=>'integer',
       ];
 }

@@ -23,7 +23,6 @@ class usersTableSeeder extends Seeder
             'password' => 'password',
             'user_img' => 'https://picsum.photos/500/300?image=30',
             'token' => 'user1@gmail.com'.Str::random(100),
-            'user_room_id' => 1,
           ],
           [
             'id' => 2,
@@ -32,7 +31,6 @@ class usersTableSeeder extends Seeder
             'password' => 'password',
             'user_img' => 'https://picsum.photos/500/300?image=40',
             'token' => 'user2@gmail.com'.Str::random(100),
-            'user_room_id' => 1,
           ],
           [
             'id' => 3,
@@ -41,7 +39,6 @@ class usersTableSeeder extends Seeder
             'password' => 'password',
             'user_img' => 'https://picsum.photos/500/300?image=10',
             'token' => 'user3@gmail.com'.Str::random(100),
-            'user_room_id' => 2,
           ],
           [
             'id' => 4,
@@ -50,7 +47,6 @@ class usersTableSeeder extends Seeder
             'password' => 'password',
             'user_img' => 'https://picsum.photos/500/300?image=11',
             'token' => 'user4@gmail.com'.Str::random(100),
-            'user_room_id' => 2,
           ],
       ]);
     }
