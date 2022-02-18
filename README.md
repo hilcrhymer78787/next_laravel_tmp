@@ -1,6 +1,6 @@
 git clone https://github.com/hilcrhymer78787/next_laravel_tmp.git
 
-cd tsumiage
+cd next_laravel_tmp
 
 docker-compose up -d --build
 
